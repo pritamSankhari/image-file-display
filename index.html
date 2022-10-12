@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <div class="my-div drop-area" style="border: 0px solid black;height: 400px;border-radius: 0px;overflow-y: scroll;box-shadow: 1px 1px 4px 1px lightgrey;margin: 5px;position: relative;">
+			<div class="dropped-images" style="display: flex;flex-wrap: wrap;justify-content: center;">
+				<div class="dropped-image" style="width: 0px;border: 0px dashed lightgrey;border-radius: 0px;margin:0px;">
+				</div>
+			</div>
+			<div class="drag-and-drop-box" style="position: absolute;left:50%;top:100%;transform: translate(-50%,-200%);">
+				<h2 class="drag-and-drop-title" style="background: blue;color: white;font-family: monospace;padding: 10px;cursor: pointer;">+ Drag and drop image</h2>
+			</div>
+
+			<input type="file" name="my-files" style="display: none;">
+		</div>
+
+		<div class="my-div2 drop-area" style="border: 0px solid black;height: 400px;border-radius: 0px;overflow-y: scroll;box-shadow: 1px 1px 4px 1px lightgrey;margin: 5px;position: relative;">
+			<div class="dropped-images" style="display: flex;flex-wrap: wrap;justify-content: center;">
+				<div class="dropped-image" style="width: 0px;border: 0px dashed lightgrey;border-radius: 0px;margin:0px;">
+				</div>
+			</div>
+			<div class="drag-and-drop-box" style="position: absolute;left:50%;top:100%;transform: translate(-50%,-200%);">
+				<h2 class="drag-and-drop-title" style="background: blue;color: white;font-family: monospace;padding: 10px;cursor: pointer;">+ Drag and drop image</h2>
+			</div>
+
+			<input type="file" name="my-files2" style="display: none;">
+		</div>
+    </div>
+    <script src="./image-file-display.js" type="text/javascript"></script>
+	
+    <script type="text/javascript">
+
+		const dargAndDropTitleDragged = "Drop it";
+		const dargAndDropTitleMain = "+ Drag and drop image";	
+		const removeBtnText = `<div style="background-color:red;color:white;width:100%;padding:10px;margin:0;">remove</div>`;
+		function fileReaderAfterLoad(){
+
+			console.log(myFileReader.getFiles());
+		}
+
+		const myFileReader = new MyFileReader("drop-area","my-div","image-remove-btn");
+		const myFileReader2 = new MyFileReader("drop-area","my-div2","image-remove-btn2");
+		// console.log(myFileReader.getFileDropAreaNode());
+	</script>
+</body>
+</html>
